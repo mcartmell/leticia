@@ -32,7 +32,7 @@ Plugins =
   runPlugin: (leticia, plugin) ->
     # return a callback
     => 
-      console.log 'running ' + @name
+      console.log 'running ' + plugin.name
       plugin.runWithCallback @msgCallback.bind(this), checkFreshness
   schedulePlugin: (leticia, plugin) ->
     new CronJob(plugin.getSchedule(), this.runPlugin(leticia, plugin), null, true)
