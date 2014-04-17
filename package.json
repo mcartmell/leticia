@@ -1,0 +1,34 @@
+{
+  "name": "leticia",
+  "version": "0.0.0",
+  "description": "A friendly domestic^Winternet helper",
+  "main": "leticia.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mcartmell/leticia.git"
+  },
+  "keywords": [
+    "twitter",
+    "bot"
+  ],
+  "author": "Mike Cartmell <mike@mikec.me>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mcartmell/leticia/issues"
+  },
+  "homepage": "https://github.com/mcartmell/leticia",
+  "dependencies": {
+    "wundergroundnode": "~0.4.0",
+    "yaml": "~0.2.3",
+    "cron": "~1.0.4",
+    "redis": "~0.10.1",
+    "coffee-script": "~1.7.1",
+    "node-twitter-api": "~1.1.4",
+    "lastfmapi": "0.0.5",
+    "config": "~0.4.35"
+  },
+  "private": "true"
+}

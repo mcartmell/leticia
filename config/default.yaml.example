@@ -1,0 +1,14 @@
+plugins:
+  lastfm:
+    api_key: ''
+    secret: ''
+    session_user: 'your_username'
+    session_key: ''
+  weather:
+    key: ''
+    location: 'SG/Singapore'
+twitter:
+  consumer_key: ''
+  consumer_secret: ''
+  token: ''
+  secret: ''

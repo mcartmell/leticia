@@ -32,4 +32,5 @@ Session.vim
 *~
 
 # Config
-config/
+config/default.yaml
+config/runtime.json
