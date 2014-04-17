@@ -2,6 +2,7 @@ CronJob = require('cron').CronJob
 redis = require 'redis'
 client = redis.createClient()
 
+# passed the data to check, and a callback to run only if the data is fresh
 checkFreshness = (arr, cb) ->
   cache_key = 'leticia-' + @name + '-last'
   json = JSON.stringify(arr)
@@ -34,5 +35,4 @@ Plugins =
   schedulePlugin: (leticia, plugin) ->
     new CronJob(plugin.getSchedule(), this.runPlugin(leticia, plugin), null, true)
     console.log 'scheduled ' + plugin.name + '!'
-    this.runPlugin(leticia, plugin)()
 module.exports = Plugins
