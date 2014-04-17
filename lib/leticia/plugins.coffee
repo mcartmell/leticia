@@ -1,4 +1,6 @@
 CronJob = require('cron').CronJob
+CONFIG = require('config').twitter
+
 redis = require 'redis'
 client = redis.createClient()
 
@@ -16,7 +18,7 @@ checkFreshness = (arr, cb) ->
 Plugins = 
   msgCallback: (msg) ->
     console.log 'got ' + msg
-    @leticia.Tweeter.tweet('@michaelcartmell ' + msg)
+    @leticia.Tweeter.tweet('@' + CONFIG.username + msg)
   registerPlugins: (leticia) ->
     @leticia = leticia
     plg = this

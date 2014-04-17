@@ -12,3 +12,4 @@ twitter:
   consumer_secret: ''
   token: ''
   secret: ''
+  username: 'your_username'
