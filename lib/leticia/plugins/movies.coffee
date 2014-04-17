@@ -8,8 +8,6 @@ _ = require 'underscore'
 
 lookupRating = (item, cb) ->
   imdb.getReq {name: item}, (err, things) ->
-    console.log err
-    console.log things
     cb(err, [item, parseFloat(things.rating)])
 
 processResults = (cb) ->
@@ -22,8 +20,8 @@ processResults = (cb) ->
     cb(msg)
 
 class Movies extends Plugin
-  plg = this
   getBestMovie: ->
+    plg = this
     request CONFIG.url, (err, res, body) ->
       $ = cheerio.load body
       names = []
