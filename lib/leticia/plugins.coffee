@@ -18,7 +18,7 @@ checkFreshness = (arr, cb) ->
 Plugins = 
   msgCallback: (msg) ->
     console.log 'got ' + msg
-    @leticia.Tweeter.tweet('@' + CONFIG.username + msg)
+    @leticia.Tweeter.tweet('@' + CONFIG.username + ' ' + msg)
   registerPlugins: (leticia) ->
     @leticia = leticia
     plg = this
