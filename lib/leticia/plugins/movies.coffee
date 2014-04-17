@@ -35,5 +35,5 @@ class Movies extends Plugin
     console.log 'running movies'
     @getBestMovie()
   getSchedule: ->
-    '*/5 * * * * *'
+    '0 0 * * * *'
 module.exports = Movies
