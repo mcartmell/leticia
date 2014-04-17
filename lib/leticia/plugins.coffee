@@ -8,7 +8,6 @@ client = redis.createClient()
 checkFreshness = (arr, cb) ->
   cache_key = 'leticia-' + @name + '-last'
   json = JSON.stringify(arr)
-  console.log 'running ' + @name + '!'
   client.get cache_key, (err, reply) ->
     unless reply == json
       # ok to run callback
@@ -33,6 +32,7 @@ Plugins =
   runPlugin: (leticia, plugin) ->
     # return a callback
     => 
+      console.log 'running ' + @name
       plugin.runWithCallback @msgCallback.bind(this), checkFreshness
   schedulePlugin: (leticia, plugin) ->
     new CronJob(plugin.getSchedule(), this.runPlugin(leticia, plugin), null, true)
