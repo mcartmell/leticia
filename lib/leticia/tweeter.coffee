@@ -8,5 +8,7 @@ Tweeter =
     consumerKey: CONFIG.consumer_key
     consumerSecret: CONFIG.consumer_secret
   tweet: (msg) ->
-    @twitter.statuses 'update', { status: msg }, @token, @secret, ->
+    @twitter.statuses 'update', { status: msg }, @token, @secret, -> (err, data, response) ->
+      if err
+        console.log err
 module.exports = Tweeter
