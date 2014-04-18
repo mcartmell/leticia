@@ -7,6 +7,8 @@ plugins:
   weather:
     key: ''
     location: 'SG/Singapore'
+  movies:
+    url: 'http://www.google.com.sg/movies?near=serangoon&tid=fb8ae472ecc03387'
 twitter:
   consumer_key: ''
   consumer_secret: ''
