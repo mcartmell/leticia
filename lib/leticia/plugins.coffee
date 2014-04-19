@@ -6,7 +6,7 @@ client = redis.createClient()
 
 # passed the data to check, and a callback to run only if the data is fresh
 checkFreshness = (arr, cb) ->
-  return unless arr.length > 0
+  return unless arr? && arr.length > 0
   cache_key = 'leticia-' + @name + '-last'
   json = JSON.stringify(arr)
   client.get cache_key, (err, reply) ->
