@@ -13,6 +13,9 @@ plugins:
   movies:
     url: 'http://www.google.com.sg/movies?near=serangoon&tid=fb8ae472ecc03387'
     schedule: '0 0 8 * * *'
+  meetup:
+    api_key: ''
+    user_ud: 'your userid'
 twitter:
   consumer_key: ''
   consumer_secret: ''
