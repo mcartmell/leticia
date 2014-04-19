@@ -26,10 +26,13 @@ Plugins =
       if file.match('swp')
         return
       plugin_class = require "./plugins/" + file
-      plugin = new plugin_class
       base = file.replace '.coffee', '';
-      plugin.name = base
-      plg.schedulePlugin leticia, plugin
+      try
+        plugin = new plugin_class
+        plugin.name = base
+        plg.schedulePlugin leticia, plugin
+      catch error
+        console.log 'failed to load ' + base + ', disabling'
   runPlugin: (leticia, plugin) ->
     # return a callback
     => 
@@ -39,6 +42,9 @@ Plugins =
       catch e
         console.log 'error: ' + e
   schedulePlugin: (leticia, plugin) ->
+    unless plugin.getConfig()
+      console.log 'skipping ' + plugin.name
+      return
     sched = plugin.getSchedule()
     new CronJob(sched, this.runPlugin(leticia, plugin), null, true)
     console.log 'scheduled ' + plugin.name + ' (' + sched + ')!'
