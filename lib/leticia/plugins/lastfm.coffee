@@ -17,7 +17,7 @@ class LastFM extends Plugin
         first_event = events.event[0]
         title = first_event.title
         venue = first_event.venue.name
-        msg = title + ' at ' + venue
+        msg = title + ' at ' + venue + ', ' + first_event.startDate
         @finish([msg])
   run: ->
     @getLatestEvents()
