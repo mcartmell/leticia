@@ -12,11 +12,14 @@ lookupRating = (item, cb) ->
 
 processResults = (cb) ->
   (err, results) ->
-    best = _.max results, (movie) ->
+    # find top 3 movies as rated by IMDB
+    best = _.sortBy results, (movie) ->
       movie[1]
-    best_name = best[0]
-    msg = 'The best movie at the moment is ' + best_name
-    console.log msg
+    .map (m) ->
+      m[0]
+    .reverse().slice(0,3).sort()
+    msg = best.join(', ')
+    msg = 'Top movies: ' + msg
     cb(msg)
 
 class Movies extends Plugin
