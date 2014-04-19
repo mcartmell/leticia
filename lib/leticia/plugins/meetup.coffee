@@ -7,6 +7,7 @@ class Meetup extends Plugin
   url: ->
     'http://api.meetup.com/2/events/?member_id=' + CONFIG.user_id + '&key=' + CONFIG.api_key
   getEvents: ->
+    plg = this
     request @url(), (err, res, body) ->
       if err
         throw err
@@ -23,7 +24,7 @@ class Meetup extends Plugin
         url = event.event_url
         time = moment(time).calendar()
         msg = 'Next event: ' + group + ' - ' + name + ' at ' + venue_name + ' on ' + time + ' ' + url
-        @finish([msg])
+        plg.finish([msg])
   run: ->
     @getEvents()
 module.exports = Meetup
