@@ -21,6 +21,4 @@ class LastFM extends Plugin
         @finish([msg])
   run: ->
     @getLatestEvents()
-  getSchedule: ->
-    '0 */10 * * * *'
 module.exports = LastFM

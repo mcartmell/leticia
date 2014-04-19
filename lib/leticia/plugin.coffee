@@ -14,4 +14,10 @@ class Plugin
       @guardCondition = guard
     @setCallback(fn)
     @run()
+  getConfig: ->
+    return @config if @config
+    @config = require('config').plugins[@name]
+    @config
+  getSchedule: ->
+    @getConfig().schedule
 module.exports = Plugin

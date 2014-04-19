@@ -14,6 +14,4 @@ class Weather extends Plugin
           @finish([msg])
   run: ->
     @getWeather()
-  getSchedule: ->
-    '0 */30 * * * *'
 module.exports = Weather

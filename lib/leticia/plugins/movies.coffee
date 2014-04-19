@@ -32,8 +32,5 @@ class Movies extends Plugin
       async.mapSeries names, lookupRating, processResults (msg) ->
         plg.finish([msg])
   run:  ->
-    console.log 'running movies'
     @getBestMovie()
-  getSchedule: ->
-    '0 0 * * * *'
 module.exports = Movies

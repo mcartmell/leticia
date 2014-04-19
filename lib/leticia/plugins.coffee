@@ -6,6 +6,7 @@ client = redis.createClient()
 
 # passed the data to check, and a callback to run only if the data is fresh
 checkFreshness = (arr, cb) ->
+  return unless arr.length > 0
   cache_key = 'leticia-' + @name + '-last'
   json = JSON.stringify(arr)
   client.get cache_key, (err, reply) ->
@@ -33,8 +34,12 @@ Plugins =
     # return a callback
     => 
       console.log 'running ' + plugin.name
-      plugin.runWithCallback @msgCallback.bind(this), checkFreshness
+      try
+        plugin.runWithCallback @msgCallback.bind(this), checkFreshness
+      catch e
+        console.log 'error: ' + e
   schedulePlugin: (leticia, plugin) ->
-    new CronJob(plugin.getSchedule(), this.runPlugin(leticia, plugin), null, true)
-    console.log 'scheduled ' + plugin.name + '!'
+    sched = plugin.getSchedule()
+    new CronJob(sched, this.runPlugin(leticia, plugin), null, true)
+    console.log 'scheduled ' + plugin.name + ' (' + sched + ')!'
 module.exports = Plugins
