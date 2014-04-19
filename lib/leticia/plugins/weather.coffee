@@ -10,7 +10,7 @@ class Weather extends Plugin
           console.log 'Error running plugin: ' + err
         else
           weather = response.current_observation.weather
-          msg = 'Hey Mike, the weather is ' + weather + ". You're welcome"
+          msg = 'Current weather: ' + weather + '.'
           @finish([msg])
   run: ->
     @getWeather()
