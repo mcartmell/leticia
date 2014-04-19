@@ -4,11 +4,15 @@ plugins:
     secret: ''
     session_user: 'your_username'
     session_key: ''
+    schedule: '0 0 9 * * *'
+    location: 'Singapore'
   weather:
     key: ''
     location: 'SG/Singapore'
+    schedule: '0 */10 * * * *'
   movies:
     url: 'http://www.google.com.sg/movies?near=serangoon&tid=fb8ae472ecc03387'
+    schedule: '0 0 8 * * *'
 twitter:
   consumer_key: ''
   consumer_secret: ''

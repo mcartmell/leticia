@@ -9,7 +9,7 @@ class LastFM extends Plugin
     @lfm.setSessionCredentials CONFIG.session_user, CONFIG.session_key
   getLatestEvents: ->
     events = @lfm.geo.getEvents 
-      location: 'Singapore'
+      location: CONFIG.location
     , (err, events) => 
       if err
         console.log 'Error running plugin: ' + err
