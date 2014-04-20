@@ -15,7 +15,7 @@ plugins:
     schedule: '0 0 8 * * *'
   meetup:
     api_key: ''
-    user_ud: 'your userid'
+    user_id: 'your userid'
 twitter:
   consumer_key: ''
   consumer_secret: ''
